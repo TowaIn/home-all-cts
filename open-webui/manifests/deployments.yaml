@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: open-webui-deployment
+  name: open-webui-deploy
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,6 @@ spec:
     spec:
       containers:
       - name: open-webui
-        # 公式のコンテナイメージを指定
         image: ghcr.io/open-webui/open-webui:main
         ports:
         - containerPort: 8080
