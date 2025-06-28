@@ -1,4 +1,3 @@
-# NextCloudのサービス
 apiVersion: v1
 kind: Service
 metadata:
@@ -10,7 +9,6 @@ spec:
   - port: 80
     targetPort: 80
     protocol: TCP
-    nodePort: 32162
   selector:
     app: nextcloud
-  type: NodePort
+  type: ClusterIP
