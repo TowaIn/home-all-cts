@@ -1,4 +1,4 @@
-# trans-bbs
+# TransBBS
 ## 概要
 書き込みログイン必須の掲示板
 

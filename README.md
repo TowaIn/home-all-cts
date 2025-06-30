@@ -6,6 +6,6 @@
 ## 構成
 Ubuntu上のmicrok8sで各コンテナを実行している
 
-外部への公開にはcloudflaredコンテナを使用
+ingressコントローラーとcloudflaredコンテナを挟み外部に公開
 
 なお、OpenWebUIと接続しているAIモデルのみ、ollamaを使用しローカルで動作させている
