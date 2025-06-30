@@ -17,3 +17,6 @@ spec:
         image: localhost:32000/trans-bbs:v2
         ports:
         - containerPort: 5000
+        envFrom:
+        - secretRef:
+            name: trans-bbs-secret
