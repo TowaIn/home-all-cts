@@ -3,7 +3,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: openwebui-data-pvc
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
