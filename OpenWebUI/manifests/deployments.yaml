@@ -20,3 +20,10 @@ spec:
         envFrom:
         - configMapRef:
             name: open-webui-config
+        volumeMounts:
+        - name: open-webui-data
+          mountPath: /app/backend/data
+      volumes:
+      - name: open-webui-data
+        persistentVolumeClaim:
+          claimName: open-webui-data
