@@ -9,8 +9,7 @@ spec:
   ports:
     - port: 443
       targetPort: 8080
-      nodePort: 30443
       protocol: TCP
   selector:
     app.kubernetes.io/name: argocd-server
-  type: NodePort
+  type: ClusterIP
