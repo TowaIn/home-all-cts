@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflared-deploy
+  labels:
+    app: cloudflared
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod: cloudflared
+  template:
+    metadata:
+      labels:
+        pod: cloudflared
+    spec:
+      containers:
+      - name: cloudflared-container
+        image: cloudflare/cloudflared:latest
+        command:
+        - cloudflared
+        - tunnel
+        - run
+        env:
+          - name: TUNNEL_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: cloudflared-secret
+                key: CLOUDFLARED_TUNNEL_TOKEN
