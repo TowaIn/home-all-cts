@@ -1,0 +1,6 @@
+# Jenkins
+
+## 概要
+ホストサーバ上で稼働させているJenkinsに、cloudflaredを通してアクセス可能にするための資材
+
+サーバ・microk8s含むプロセス管理用のジョブを実行可能にするため、Jenkins自体をmicrok8s上に配置することはできない
