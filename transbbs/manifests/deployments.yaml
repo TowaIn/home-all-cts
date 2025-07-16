@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: trans-bbs-deploy
+  name: trans-bbs
 spec:
   replicas: 1
   selector:

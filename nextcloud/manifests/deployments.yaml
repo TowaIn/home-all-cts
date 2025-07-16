@@ -1,10 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: nextcloud-deploy
+  name: nextcloud
   labels:
     app: nextcloud
 spec:
+  serviceName: nextcloud-svc
   replicas: 1
   selector:
     matchLabels:
