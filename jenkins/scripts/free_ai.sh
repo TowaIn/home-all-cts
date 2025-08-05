@@ -2,7 +2,7 @@
 
 DEPLOYMENT_NAME="open-webui"
 CONTAINER_NAME="open-webui"
-
+TARGET_STATUS="False"
 set -e
 
 cat <<EOF > /tmp/openwebui-auth-patch.yaml
@@ -13,9 +13,9 @@ spec:
       - name: ${CONTAINER_NAME}
         env:
         - name: WEBUI_AUTH
-          value: "False"
+          value: "${TARGET_STATUS}"
         - name: ENABLE_PERSISTENT_CONFIG
-          value: "False"
+          value: "${TARGET_STATUS}"
 EOF
 
 kubectl patch deployment "${DEPLOYMENT_NAME}" \
