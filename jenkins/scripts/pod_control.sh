@@ -1,6 +1,11 @@
 #!/bin/bash
 CONFIG_FILE="/home/toin/git/home-all-cts/jenkins/scripts/pod_list.conf"
 
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "ERROR: 設定ファイル '${CONFIG_FILE}' が見つかりません。"
+    exit 1
+fi
+
 if [ "$#" -ne 2 ]; then
   echo "使い方: $0 <stop|start> <ターゲット>"
   exit 1

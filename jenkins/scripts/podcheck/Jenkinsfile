@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    tools {
+        go 'go1.22'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build Tool') {
+            steps {
+                dir("jenkins/scripts/podcheck/") {
+                    sh 'go build -o podcheck main.go'
+                }
+            }
+        }
+
+        stage('Kubernetes Health Check') {
+            steps {
+                dir("jenkins/scripts/podcheck/") {
+                    sh './podcheck'
+                }
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo "ポッドのステータス異常を検知しました"
+        }
+    }
+}
